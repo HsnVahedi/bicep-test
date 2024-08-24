@@ -1,0 +1,10 @@
+# global requirements
+gunicorn==22.0.0
+
+# django requirements
+django
+django-crispy-forms
+crispy-bootstrap4
+whitenoise
+azure-monitor-opentelemetry
+psycopg2
