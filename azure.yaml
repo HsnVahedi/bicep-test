@@ -7,12 +7,12 @@ metadata:
 infra:
     provider: "bicep"
 services:
+    # web:
+    #     project: src
+    #     language: py
+    #     module: web
+    #     host: containerapp
     web:
-        project: src
-        language: py
-        module: web
-        host: containerapp
-    tennis:
         project: backend/tennis
         language: py
         module: tennis
