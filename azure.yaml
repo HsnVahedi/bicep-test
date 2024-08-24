@@ -1,20 +1,20 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
 
 
-name: azure-django-postgres-flexible-aca
+name: azure-aca
 metadata:
-    template: azure-django-postgres-flexible-aca@0.0.1
+    template: azure-aca@0.0.1
 infra:
     provider: "bicep"
-services:
-    # web:
-    #     project: src
-    #     language: py
-    #     module: web
-    #     host: containerapp
-    web:
-        project: backend/tennis
-        language: py
-        # module: tennis
-        module: web
-        host: containerapp
+# services:
+#     # web:
+#     #     project: src
+#     #     language: py
+#     #     module: web
+#     #     host: containerapp
+#     tennis:
+#         project: backend/tennis
+#         language: py
+#         # module: tennis
+#         module: web
+#         host: containerapp
