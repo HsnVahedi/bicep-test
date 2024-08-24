@@ -62,7 +62,7 @@ module virtualNetwork 'br/public:avm/res/network/virtual-network:0.1.8' = {
       }
       {
         addressPrefix: '10.0.2.0/23'
-        name: 'web'
+        name: 'tennis'
         tags: tags
         serviceEndpoints: [
           {
@@ -194,8 +194,8 @@ module containerApps 'core/host/container-apps.bicep' = {
 }
 
 // Web frontend
-module web 'web.bicep' = {
-  name: 'web'
+module web 'tennis.bicep' = {
+  name: 'tennis'
   scope: resourceGroup
   params: {
     name: replace('${take(prefix,19)}-ca', '--', '-')
@@ -203,7 +203,7 @@ module web 'web.bicep' = {
     tags: tags
     applicationInsightsName: monitoring.outputs.applicationInsightsName
     keyVaultName: keyVault.outputs.name
-    identityName: '${prefix}-id-web'
+    identityName: '${prefix}-id-tennis'
     containerAppsEnvironmentName: containerApps.outputs.environmentName
     containerRegistryName: containerApps.outputs.registryName
     exists: webAppExists
