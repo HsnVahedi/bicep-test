@@ -12,3 +12,8 @@ services:
         language: py
         module: web
         host: containerapp
+    tennis:
+        project: backend/tennis
+        language: py
+        module: tennis
+        host: containerapp
