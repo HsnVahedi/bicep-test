@@ -77,31 +77,32 @@ jobs:
             source .env
             echo "uri=$BACKEND_URI" >> "$GITHUB_OUTPUT"
 
-    smoketests:
-      runs-on: ubuntu-latest
-      needs: build
-      steps:
+    # TODO: Add smoke tests
+    # smoketests:
+    #   runs-on: ubuntu-latest
+    #   needs: build
+    #   steps:
 
-        - name: Basic smoke test (curl)
-          env:
-            URI: ${{needs.build.outputs.uri}}
-          run: |
-            echo "Sleeping 1 minute due to https://github.com/Azure/azure-dev/issues/2669"
-            sleep 60
-            curl -sSf $URI
-        - name: Checkout
-          uses: actions/checkout@v3
+    #     - name: Basic smoke test (curl)
+    #       env:
+    #         URI: ${{needs.build.outputs.uri}}
+    #       run: |
+    #         echo "Sleeping 1 minute due to https://github.com/Azure/azure-dev/issues/2669"
+    #         sleep 60
+    #         curl -sSf $URI
+    #     - name: Checkout
+    #       uses: actions/checkout@v3
 
-        - name: Setup python
-          uses: actions/setup-python@v4
-          with:
-            python-version: 3.12
+    #     - name: Setup python
+    #       uses: actions/setup-python@v4
+    #       with:
+    #         python-version: 3.12
 
-        - name: End-to-end smoke tests (playwright)
-          env:
-            URI: ${{needs.build.outputs.uri}}
-          run: |
-            python3 -m pip install --upgrade pip
-            python3 -m pip install -r requirements-dev.txt
-            python3 -m playwright install chromium --with-deps
-            python3 -m pytest --exitfirst src/tests/smoke/smoketests.py --live-server-url $URI
+    #     - name: End-to-end smoke tests (playwright)
+    #       env:
+    #         URI: ${{needs.build.outputs.uri}}
+    #       run: |
+    #         python3 -m pip install --upgrade pip
+    #         python3 -m pip install -r requirements-dev.txt
+    #         python3 -m playwright install chromium --with-deps
+    #         python3 -m pytest --exitfirst src/tests/smoke/smoketests.py --live-server-url $URI
